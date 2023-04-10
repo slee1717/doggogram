@@ -1,10 +1,10 @@
 # Web Development Project 7 - *Name of App Here*
 
-Submitted by: **Your Name Here**
+Submitted by: **Sam Lee**
 
-This web app: **insert description**
+This web app: **Crewmate creation tool that allows for managing crewmates**
 
-Time spent: **X** hours spent in total
+Time spent: *10** hours spent in total
 
 ## Required Features
 
