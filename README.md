@@ -4,7 +4,7 @@ Submitted by: Samuel Lee
 
 This web app: Instagram for dogs
 
-Time spent: 150 hours spent in total
+Time spent: 30 hours spent in total
 
 ## Required Features
 
