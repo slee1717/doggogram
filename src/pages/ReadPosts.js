@@ -5,6 +5,7 @@ import './ReadPosts.css'
 const ReadPosts = (props) => {
   const [posts, setPosts] = useState(props.data);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     setPosts(props.data);
@@ -18,6 +19,19 @@ const ReadPosts = (props) => {
     post.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleSort = () => {
+    const sortedPosts = [...posts];
+    sortedPosts.sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.name.localeCompare(b.name);
+      } else {
+        return b.name.localeCompare(a.name);
+      }
+    });
+    setPosts(sortedPosts);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
   return (
     <div className="ReadPosts">
     
@@ -29,6 +43,13 @@ const ReadPosts = (props) => {
           onChange={handleSearch}
           style={{width: '200%', padding: '10px', borderRadius: '5px', border: '1px solid #ddd', boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)'}}
         />
+        <br />
+        <br />
+        <div style={{textAlign: 'left'}}>
+        <button onClick={handleSort}>
+          {sortOrder === 'asc' ? 'Sort A-Z' : 'Sort Z-A'}
+        </button>
+        </div>
       </div>
       <br />
       {filteredPosts.length > 0 ? (
@@ -39,6 +60,7 @@ const ReadPosts = (props) => {
             name={post.name}
             picture={post.picture}
             post={post.post}
+            created_at={post.created_at}
           />
         ))
       ) : (
