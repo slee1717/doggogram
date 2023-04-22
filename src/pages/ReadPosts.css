@@ -5,3 +5,20 @@
     gap: 30px;
 }
 
+.search-bar-container {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.search-bar {
+width: 300px; /* or whatever width you want */
+padding: 10px;
+border: none;
+border-radius: 5px;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+justify-content: center;
+font-size: 16px;
+outline: none;
+}
+

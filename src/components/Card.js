@@ -9,9 +9,9 @@ const Card = (props) =>  {
   return (
       <div className="Card">
           <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link>
-          <h2 className="name">{"Name: " + props.name}</h2>
-          <h3 className="color">{"Color: " +props.color}</h3>
-          <p className="speed">{"Speed: " +props.speed + " m/hr"}</p>
+          <h2 className="name">{props.name}</h2>
+          <p className="post">{props.post}</p>
+          <img src={props.picture} width="200" height="200"></img>
       </div>
   );
 };

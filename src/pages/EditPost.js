@@ -6,12 +6,12 @@ import { supabase } from '../client'; // assuming you have imported and configur
 const EditPost = ({ data }) => {
 
     const { id } = useParams();
-    const [post, setPost] = useState({ name: '', color: '', speed: '' });
+    const [post, setPost] = useState({ name: '', post: '', picture: '' });
 
     useEffect(() => {
         const fetchPost = async () => {
             const { data: postFromDB, error } = await supabase
-                .from('crewmate')
+                .from('socialmedia')
                 .select('*')
                 .eq('id', id)
                 .single();
@@ -30,7 +30,7 @@ const EditPost = ({ data }) => {
         event.preventDefault();
 
         await supabase
-            .from('crewmate')
+            .from('socialmedia')
             .delete()
             .eq('id', id);
 
@@ -41,8 +41,8 @@ const EditPost = ({ data }) => {
         event.preventDefault();
 
         await supabase
-        .from('crewmate')
-        .update({ name: post.name, color: post.color,  speed: post.speed})
+        .from('socialmedia')
+        .update({ name: post.name, post: post.post,  picture: post.picture})
         .eq('id', id);
 
         window.location = "/";
@@ -60,12 +60,12 @@ const EditPost = ({ data }) => {
                 <input type="text" id="name" name="name" value={post.name} onChange={handleChange} /><br />
                 <br />
 
-                <label htmlFor="color">color</label><br />
-                <input type="text" id="color" name="color" value={post.color} onChange={handleChange} /><br />
+                <label htmlFor="post">post</label><br />
+                <input type="text" id="post" name="post" value={post.post} onChange={handleChange} /><br />
                 <br />
 
-                <label htmlFor="speed">speed</label><br />
-                <textarea rows="5" cols="50" id="speed" name="speed" value={post.speed} onChange={handleChange} >
+                <label htmlFor="picture">picture</label><br />
+                <textarea rows="5" cols="50" id="picture" name="picture" value={post.picture} onChange={handleChange} >
                 </textarea>
                 <br />
                 <input type="submit" value="Submit" onClick={updatePost}/>

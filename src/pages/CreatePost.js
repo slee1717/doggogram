@@ -5,8 +5,8 @@ import { supabase } from '../client'
 const CreatePost = () => {
     const [post, setPost] = useState({
         name: '',
-        color: '',
-        speed: ''
+        post: '',
+        picture: ''
     });
 
     const handleChange = (event) => {
@@ -18,8 +18,8 @@ const CreatePost = () => {
         event.preventDefault();
 
         await supabase
-            .from('crewmate')
-            .insert({ name: post.name, color: post.color, speed: post.speed });
+            .from('socialmedia')
+            .insert({ name: post.name, post: post.post, picture: post.picture });
 
         window.location = "/";
     }
@@ -31,12 +31,12 @@ const CreatePost = () => {
                 <input type="text" id="name" name="name" value={post.name} onChange={handleChange} /><br />
                 <br/>
 
-                <label htmlFor="color">color</label><br />
-                <input type="text" id="color" name="color" value={post.color} onChange={handleChange} /><br />
+                <label htmlFor="post">post</label><br />
+                <input type="text" id="post" name="post" value={post.post} onChange={handleChange} /><br />
                 <br/>
 
-                <label htmlFor="speed">speed</label><br />
-                <textarea rows="5" cols="50" id="speed" name="speed" value={post.speed} onChange={handleChange}>
+                <label htmlFor="picture">picture</label><br />
+                <textarea rows="5" cols="50" id="picture" name="picture" value={post.picture} onChange={handleChange}>
                 </textarea>
                 <br/>
                 <input type="submit" value="Submit" />

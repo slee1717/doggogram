@@ -32,7 +32,7 @@ const App = () => {
     // Define async function fetchData
     const fetchData = async () => {
       const { data } = await supabase
-        .from('crewmate')
+        .from('socialmedia')
         .select()
         .order('created_at', { ascending: true });
       setPosts(data);
@@ -47,9 +47,9 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>Crewmate Creator 👷</h1>
-        <Link to="/"><button className="headerBtn"> View Crewmates   </button></Link>
-        <Link to="/new"><button className="headerBtn"> Submit Crewmate </button></Link>
+        <h1>DoggoGram 🐕</h1>
+        <Link to="/"><button className="headerBtn"> View All Posts   </button></Link>
+        <Link to="/new"><button className="headerBtn"> Add New Post </button></Link>
       </div>
         {element}
     </div>
